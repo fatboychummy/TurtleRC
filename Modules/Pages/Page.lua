@@ -67,5 +67,13 @@ function met:hit(x, y)
   return false
 end
 
+function met:dump(loc)
+
+end
+
+function met:load(loc)
+
+end
+
 
 return funcs
