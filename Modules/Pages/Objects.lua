@@ -3,7 +3,7 @@ local meta = {}
 local met = {}
 meta.__index = met
 
-local draw = require("/TurtleRC/CustomPaint")
+local draw = require("Modules.CustomPaint")
 
 function met:draw()
   draw.drawBox(self.x1, self.y1, self.x2, self.y2, ' ', self.BGColor)

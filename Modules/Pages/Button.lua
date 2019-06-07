@@ -7,7 +7,7 @@ meta.__index = met
 
 
 
-local draw = require("/TurtleRC/CustomPaint")
+local draw = require("Modules.CustomPaint")
 
 function met:hit(x, y)
   return self.enabled

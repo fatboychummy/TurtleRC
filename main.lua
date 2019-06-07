@@ -5,11 +5,12 @@ This program will handle controlling of a turtle, remotely.
 ]]
 
 
-local remote = require("Remote.Modem")
-local draw = require("CustomPaint")
-local btn = require("Pages.Button")
-local obj = require("Pages.Objects")
-local pg = require("Pages.Page")
+local prf = "Modules."
+local remote = require(prf .. "Remote.Modem")
+local draw = require(prf .. "CustomPaint")
+local btn = require(prf .. "Pages.Button")
+local obj = require(prf .. "Pages.Objects")
+local pg = require(prf .. "Pages.Page")
 local mx, my = term.getSize()
 local iSelected = 1
 local above = {"Empty"}
