@@ -30,7 +30,7 @@ function met:draw()
 end
 
 
-function funcs.new(x1, y1, x2, y2, color, color2, color3, text)
+function funcs.new(x1, y1, x2, y2, color, color2, color3, text, name, btnType)
   local tb = {
     x1 = x1 or 0,
     x2 = x2 or 0,
@@ -41,7 +41,9 @@ function funcs.new(x1, y1, x2, y2, color, color2, color3, text)
     FGColor = color2 or colors.white,
     disabledBGColor = color3 or colors.black,
     content = text or "",
-    ID = lastID
+    ID = lastID,
+    name = name or "Button_" .. tostring(lastID),
+    t = btnType or 1
   }
   lastID = lastID + 1
   setmetatable(tb, meta)
