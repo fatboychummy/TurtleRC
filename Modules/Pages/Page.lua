@@ -17,6 +17,15 @@ function met:addButton(button)
   self.buttons[#self.buttons + 1] = button
 end
 
+function met:getButton(btnID)
+  for i = 1, #self.buttons do
+    if self.buttons[i].ID == btnID then
+      return self.buttons[i]
+    end
+  end
+  return false
+end
+
 function met:addObject(obj)
   self.content[#self.content + 1] = obj
 end
@@ -68,7 +77,16 @@ function met:hit(x, y)
 end
 
 function met:dump(loc)
+  local h = io.open(loc, "w")
+  if h then
+    local tbl = {
+      content = {},
+      buttons = {}
+    }
 
+  else
+
+  end
 end
 
 function met:load(loc)
