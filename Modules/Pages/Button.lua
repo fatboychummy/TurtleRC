@@ -17,14 +17,21 @@ end
 function met:draw()
   draw.drawBox(self.x1, self.y1, self.x2, self.y2, ' ', self.enabled
                 and self.BGColor or self.disabledBGColor)
-  term.setCursorPos((self.x2 - math.floor(self.x2 - self.x1) / 2)
-                    - self.content:len() / 2 + 1,
-                    self.y2 - math.floor(self.y2 - self.y1) / 2)
+  term.setCursorPos(type(self.content) == "string"
+                      and (self.x2 - math.floor(self.x2 - self.x1) / 2)
+                      - self.content:len() / 2 + 1
+                      or self.x1,
+                    type(self.content) == "string"
+                      and self.y2 - math.floor(self.y2 - self.y1) / 2
+                      or self.y1
+                    )
   local obg = term.getBackgroundColor()
   local ofg = term.getTextColor()
   term.setBackgroundColor(self.enabled and self.BGColor or self.disabledBGColor)
   term.setTextColor(self.FGColor)
-  io.write(self.content)
+  io.write(type(self.content) == "string" and self.content
+          or type(self.content) == "table" and table.concat(self.content, ' ')
+          or "")
   term.setBackgroundColor(obg)
   term.setTextColor(ofg)
 end
